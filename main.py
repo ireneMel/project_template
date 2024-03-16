@@ -21,7 +21,7 @@ def main():
     sys.stdout = sys.__stdout__
 
     write_text("Hello world!")
-    write_into_file("This text is to be written into a file", "write_to_file.txt")
+    write_into_file("This text is to be written into a file", "test_files/write_to_file.txt")
 
 
 
