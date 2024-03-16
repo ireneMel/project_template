@@ -12,7 +12,8 @@ class TestFileOperations(unittest.TestCase):
         # Create a test file with some data
         with open("../test_files/test_file.txt", "w") as file:
             file.write("This is a test file.")
-
+        with open("../test_files/empty_file.txt", "w") as file:
+            file.write("")
         # Create a test CSV file with some data
         data = {'A': [1, 2, 3], 'B': [4, 5, 6], 'C': [7, 8, 9]}
         df = pd.DataFrame(data)
@@ -26,6 +27,11 @@ class TestFileOperations(unittest.TestCase):
     def test_read_from_file_invalid_path(self):
         file_path = "non_existing_file.txt"
         self.assertIsNone(read_from_file(file_path))
+
+    def test_read_from_file_empty_file(self):
+        empty_file_path = "../test_files/empty_file.txt"
+        open(empty_file_path, "w").close()
+        self.assertEqual(read_from_file(empty_file_path), "")
 
     def test_read_pandas_success(self):
         file_path = "../test_files/test_file.csv"
@@ -44,3 +50,4 @@ class TestFileOperations(unittest.TestCase):
         # Clean up created test files
         os.remove("../test_files/test_file.txt")
         os.remove("../test_files/test_file.csv")
+        os.remove("../test_files/empty_file.txt")
