@@ -18,6 +18,11 @@ class TestFileOperations(unittest.TestCase):
         df = pd.DataFrame(data)
         df.to_csv("test_fileІуе.csv", index=False)
 
+    def test_read_from_file_success(self):
+        file_path = "../test_files/test_file.txt"
+        expected_output = "This is a test file."
+        self.assertEqual(read_from_file(file_path), expected_output)
+
     def tearDown(self):
         # Clean up created test files
         os.remove("test_file.txt")
