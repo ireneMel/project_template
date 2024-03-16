@@ -1,11 +1,12 @@
 def write_text(text):
     """
-    Writes text data to a file.
+    Display text into console.
 
     Args:
-        text (str): The text data to be written to the file.
+        text (str): The text data to be displayed.
     """
-    return
+    print(text)
+
 
 def write_into_file(data, file_path):
     """
@@ -15,4 +16,5 @@ def write_into_file(data, file_path):
            data: The data to be written into the file.
            file_path (str): The path to the file.
     """
-    return
+    with open(file_path, "w") as file:
+        file.write(str(data))
