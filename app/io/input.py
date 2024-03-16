@@ -21,8 +21,12 @@ def read_from_file(file_path):
     Returns:
         str: The data read from the file.
     """
-    with open(file_path, "r") as file:
-        return file.read()
+    try:
+        with open(file_path, "r") as file:
+            return file.read()
+    except Exception as e:
+        print("Error reading file:", e)
+        return None
 
 
 def read_pandas(file_path):
