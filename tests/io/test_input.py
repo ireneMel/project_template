@@ -23,7 +23,11 @@ class TestFileOperations(unittest.TestCase):
         expected_output = "This is a test file."
         self.assertEqual(read_from_file(file_path), expected_output)
 
-    def tearDown(self):
-        # Clean up created test files
-        os.remove("test_file.txt")
-        os.remove("test_file.csv")
+    def test_read_from_file_invalid_path(self):
+        file_path = "non_existing_file.txt"
+        self.assertIsNone(read_from_file(file_path))
+
+    # def tearDown(self):
+    #     # Clean up created test files
+    #     os.remove("test_file.txt")
+    #     os.remove("test_file.csv")
