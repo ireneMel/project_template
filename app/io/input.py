@@ -39,6 +39,12 @@ def read_pandas(file_path):
     Returns:
         pandas.DataFrame: The data as a Pandas DataFrame.
     """
+    # Check file extension
+    allowed_extensions = ['.csv']
+    file_extension = file_path[file_path.rfind('.'):].lower()
+    if file_extension not in allowed_extensions:
+        print("Unsupported file type.")
+        return None
     try:
         df = pd.read_csv(file_path)
         return df

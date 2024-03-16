@@ -35,7 +35,12 @@ class TestFileOperations(unittest.TestCase):
     def test_read_pandas_invalid_path(self):
         file_path = "non_existing_file.csv"
         self.assertIsNone(read_pandas(file_path))
-    # def tearDown(self):
-    #     # Clean up created test files
-    #     os.remove("../test_files/test_file.txt")
-    #     os.remove("../test_files/test_file.csv")
+
+    def test_read_pandas_invalid_file_type(self):
+        file_path = "../test_files/test_file.txt"
+        self.assertIsNone(read_pandas(file_path))
+
+    def tearDown(self):
+        # Clean up created test files
+        os.remove("../test_files/test_file.txt")
+        os.remove("../test_files/test_file.csv")
