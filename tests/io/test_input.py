@@ -32,6 +32,9 @@ class TestFileOperations(unittest.TestCase):
         expected_output = pd.DataFrame({'A': [1, 2, 3], 'B': [4, 5, 6], 'C': [7, 8, 9]})
         pd.testing.assert_frame_equal(read_pandas(file_path), expected_output)
 
+    def test_read_pandas_invalid_path(self):
+        file_path = "non_existing_file.csv"
+        self.assertIsNone(read_pandas(file_path))
     # def tearDown(self):
     #     # Clean up created test files
     #     os.remove("../test_files/test_file.txt")
